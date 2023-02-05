@@ -1,6 +1,9 @@
 apiVersion: v2
 name: transmission-daemon
-description: A Helm chart for Kubernetes
+keywords:
+  - storage
+  - torrent
+description: Transmission bittorent client Helm chart for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
 #

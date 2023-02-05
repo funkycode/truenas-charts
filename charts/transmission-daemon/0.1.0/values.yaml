@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: funkycode/transmission-daemon
-  tag: v3.0.0
+  tag: ""
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
