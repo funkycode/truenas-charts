@@ -1,7 +1,7 @@
 apiVersion: v2
 name: transmission-daemon
-home: https://transmissionbt.com
-icon: https://raw.githubusercontent.com/transmission/transmission/main/gtk/icons/hicolor_apps_scalable_transmission.svg
+home: https://transmissionbt.com/
+icon: https://transmissionbt.com/assets/images/Transmission_icon.png
 keywords:
   - storage
   - torrent
