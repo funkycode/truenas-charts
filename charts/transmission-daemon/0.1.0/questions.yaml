@@ -9,7 +9,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - 9091
+      - "9091"
     path: "/transmission/web/"
 
 questions:
