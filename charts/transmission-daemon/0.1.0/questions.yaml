@@ -1,0 +1,58 @@
+groups:
+  - name: "Storage"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$node_ip"
+    ports:
+      - "9091"
+    path: "/"
+
+questions:
+  - variable: appVolumeMounts
+    label: "Persistant Data"
+    group: "Storage"
+    schema:
+      type: dict
+      attrs:
+        - variable: data
+          label: "Download Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Download Volume Dataset"
+                schema:
+                  type: string
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "ix-transmission_download"
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Transmission Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: "/mnt/data"
+              - variable: hostPathEnabled
+                label: "Enable Host Path for Transmission Download Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path Transmission Download Volume"
+                      schema:
+                        type: hostpath
+                        required: true
+                        $ref:
+                          - "validations/lockedHostPath"

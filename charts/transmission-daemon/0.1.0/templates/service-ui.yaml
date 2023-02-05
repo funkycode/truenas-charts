@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  name: {{ include "transmission-daemon.fullname" . }}-ui
+  labels:
+    {{- include "transmission-daemon.labels" . | nindent 4 }}
+spec:
+  internalTrafficPolicy: Cluster
+  ports:
+  - name: http
+    port: 9091
+    protocol: TCP
+    targetPort: http
+  type: ClusterIP
