@@ -19,6 +19,43 @@ questions:
     schema:
       type: dict
       attrs:
+        - variable: config
+          label: "Config Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Config Volume Dataset"
+                schema:
+                  type: string
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "ix-transmission_config"
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Transmission Config Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: "/root/.config/transmission-daemon"
+              - variable: hostPathEnabled
+                label: "Enable Host Path for Transmission Download Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path Transmission Config Volume"
+                      schema:
+                        type: hostpath
+                        required: true
+                        $ref:
+                          - "validations/lockedHostPath"
         - variable: data
           label: "Download Volume"
           schema:
