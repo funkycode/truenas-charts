@@ -10,7 +10,7 @@ portals:
       - "$node_ip"
     ports:
       - "9091"
-    path: "/transmission/web/"
+    path: "/"
 
 questions:
   - variable: appVolumeMounts
