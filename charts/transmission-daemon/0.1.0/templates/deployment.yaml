@@ -39,9 +39,9 @@ spec:
             httpGet:
               path: /
               port: http
-        volumes:
-        {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
+      volumes:
+      {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
         - name: extrappvolume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
-        {{ end }}
+      {{ end }}
