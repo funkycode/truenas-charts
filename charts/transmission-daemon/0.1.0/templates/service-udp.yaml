@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  name: {{ include "transmission-daemon.fullname" . }}-udp
+  labels:
+    {{- include "transmission-daemon.labels" . | nindent 4 }}
+spec:
+  internalTrafficPolicy: Cluster
+  ports:
+  - name: udp
+    port: 51414
+    protocol: UDP
+    targetPort: udp
+  type: ClusterIP
+  selector:
+    {{- include "transmission-daemon.selectorLabels" . | nindent 4 }}
