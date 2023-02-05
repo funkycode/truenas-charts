@@ -40,12 +40,13 @@ spec:
             httpGet:
               path: /
               port: http
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      hostname: transmission
       volumes:
       {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
         - name: extrappvolume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
       {{ end }}
-      dnsPolicy: ClusterFirstWithHostNet
-      hostNetwork: true
-      hostname: transmission
+
