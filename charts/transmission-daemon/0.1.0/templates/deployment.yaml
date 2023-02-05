@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "transmission-daemon.labels" . | nindent 4 }}
 spec:
-  replicas: 0
+  replicas: {{ (default 1 .Values.replicas) }}
   selector:
     matchLabels:
       {{- include "transmission-daemon.selectorLabels" . | nindent 6 }}
