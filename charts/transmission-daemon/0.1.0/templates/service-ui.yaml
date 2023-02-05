@@ -13,3 +13,5 @@ spec:
     protocol: TCP
     targetPort: http
   type: ClusterIP
+  selector:
+    {{- include "transmission-daemon.selectorLabels" . | nindent 4 }}
