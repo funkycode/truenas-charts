@@ -25,6 +25,7 @@ spec:
           volumeMounts:
           {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
           - name: extrappvolume-{{ $index }}
+            mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}
           ports:
             - name: http
