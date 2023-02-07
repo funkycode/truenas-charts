@@ -81,7 +81,7 @@ questions:
                   editable: false
                   default: "/root/.config/transmission-daemon"
               - variable: hostPathEnabled
-                label: "Enable Host Path for Transmission Download Volume"
+                label: "Enable Host Path for Transmission Config Volume"
                 schema:
                   type: boolean
                   default: false
