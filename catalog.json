@@ -23,7 +23,7 @@
                 "network"
             ],
             "description": "Simplify networking complexity while designing, deploying, and operating applications.",
-            "healthy": false,
+            "healthy": true,
             "healthy_error": null,
             "location": "/__w/charts/charts/charts/traefik",
             "latest_version": "20.8.0",
