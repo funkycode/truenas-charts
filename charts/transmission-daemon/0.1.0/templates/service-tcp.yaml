@@ -9,11 +9,11 @@ spec:
   internalTrafficPolicy: Cluster
   ports:
   - name: http
-    port: 9091
+    port: {{ .Values.ports.web_port }}
     protocol: TCP
     targetPort: http
   - name: tcp
-    port: 51413
+    port: {{ .Values.ports.tcp_port }}
     protocol: TCP
     targetPort: tcp
   type: ClusterIP

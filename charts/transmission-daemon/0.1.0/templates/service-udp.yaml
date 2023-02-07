@@ -9,7 +9,7 @@ spec:
   internalTrafficPolicy: Cluster
   ports:
   - name: udp
-    port: 51414
+    port: {{ .Values.ports.udp_port }}
     protocol: UDP
     targetPort: udp
   type: ClusterIP
