@@ -16,6 +16,22 @@
             "name": "transmission-daemon",
             "title": "Transmission",
             "icon_url": "https://transmissionbt.com/assets/images/Transmission_icon.png"
+        },
+        "traefik": {
+            "app_readme": "<h1>Traefik</h1>\n<p><a href=\"https://traefik.io/traefik/\">traefik</a> The Cloud Native Application Proxy.</p>",
+            "categories": [
+                "network"
+            ],
+            "description": "Simplify networking complexity while designing, deploying, and operating applications.",
+            "healthy": false,
+            "healthy_error": null,
+            "location": "/__w/charts/charts/charts/traefik",
+            "latest_version": "20.8.0",
+            "latest_app_version": "v2.9.6",
+            "latest_human_version": "v2.9.6_20.8.0",
+            "name": "traefik",
+            "title": "Traefik",
+            "icon_url": "https://github.com/traefik/traefik/raw/master/docs/content/assets/img/traefik.logo.png"
         }
     }
 }
