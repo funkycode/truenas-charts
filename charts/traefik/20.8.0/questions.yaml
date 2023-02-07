@@ -1,0 +1,13 @@
+groups: []
+
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$node_ip"
+    ports:
+      - "9000"
+    path: "/"
+
+questions: {}
