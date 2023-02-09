@@ -10,9 +10,9 @@
             "healthy": true,
             "healthy_error": null,
             "location": "/__w/charts/charts/charts/transmission",
-            "latest_version": "0.1.0",
-            "latest_app_version": "3.0.0",
-            "latest_human_version": "3.0.0_0.1.0",
+            "latest_version": "0.2.0",
+            "latest_app_version": "4.0.0",
+            "latest_human_version": "4.0.0_0.2.0",
             "name": "transmission-daemon",
             "title": "Transmission",
             "icon_url": "https://transmissionbt.com/assets/images/Transmission_icon.png"
