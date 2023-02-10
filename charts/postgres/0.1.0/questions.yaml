@@ -15,28 +15,20 @@ portals:
     path: "/"
 
 questions:
-  # - variable: ports
-  #   label: "Transmission Ports"
-  #   group: "Networking"
-  #   schema:
-  #     type: dict
-  #     attrs:
-  #       - variable: web_port
-  #         label: "Web UI port"
-  #         schema:
-  #           type: int
-  #           min: 8000
-  #           max: 65535
-  #           default: 9091
-  #           required: true
-  #       - variable: tcp_port
-  #         label: "TCP port"
-  #         schema:
-  #           type: int
-  #           min: 8000
-  #           max: 65535
-  #           default: 51413
-  #           required: true
+  - variable: ports
+    label: "Transmission Ports"
+    group: "Networking"
+    schema:
+      type: dict
+      attrs:
+        - variable: tcp_port
+          label: "TCP port"
+          schema:
+            type: int
+            min: 5430
+            max: 65535
+            default: 5432
+            required: true
   #       - variable: udp_port
   #         label: "UDP port"
   #         schema:
