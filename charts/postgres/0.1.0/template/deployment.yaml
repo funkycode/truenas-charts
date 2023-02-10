@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
           {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
-          - name: extrappvolume-{{ $index }}
+          - name: volume-{{ $index }}
             mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}
           ports:
@@ -51,7 +51,7 @@ spec:
       hostname: transmission
       volumes:
       {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
-        - name: extrappvolume-{{ $index }}
+        - name: volume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
       {{ end }}
