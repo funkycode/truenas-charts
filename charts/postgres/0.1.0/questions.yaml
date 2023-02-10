@@ -7,11 +7,11 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "tcp"
+      - "http"
     host:
       - "$node_ip"
     ports:
-      - "5432"
+      - "80"
     path: "/"
 
 questions:
