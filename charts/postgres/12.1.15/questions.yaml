@@ -5,8 +5,7 @@ groups: []
 #   description: "Networking Configuration for transmission"
 
 portals:
-  {}
-  # web_portal:
+  web_portal: {}
   #   protocols:
   #     - "http"
   #   host:
