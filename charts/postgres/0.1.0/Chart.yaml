@@ -17,7 +17,7 @@ keywords:
 maintainers:
   - name: funkycode
     url: https://github.com/funkycode/truenas/charts/postgres
-name: postgresql
+name: postgres
 sources:
   - https://www.postgresql.org/
 version: 0.1.0
