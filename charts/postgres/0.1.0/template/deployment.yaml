@@ -48,7 +48,7 @@ spec:
               - exec pg_isready -U "postgres" -h 127.0.0.1 -p {{ .Values.ports.tcp_port }}
       dnsPolicy: ClusterFirstWithHostNet
       hostNetwork: {{ .Values.hostNetwork }}
-      hostname: transmission
+      hostname: postgres
       volumes:
       {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
         - name: volume-{{ $index }}
