@@ -3,16 +3,15 @@
         "postgres": {
             "app_readme": "<h1>Postgres</h1>\n<p><a href=\"https://www.postgresql.org/\">PostgreSQL</a> (Postgres) is an open source object-relational database.</p>",
             "categories": [
-                "database",
-                "sql"
+                "database"
             ],
             "description": "PostgreSQL (Postgres) is an open source object-relational database.",
             "healthy": true,
             "healthy_error": null,
             "location": "/__w/charts/charts/charts/postgres",
             "latest_version": "0.1.0",
-            "latest_app_version": "15.1.0",
-            "latest_human_version": "15.1.0_0.1.0",
+            "latest_app_version": "15.1",
+            "latest_human_version": "15.1_0.1.0",
             "name": "postgres",
             "title": "PostgreSQL",
             "icon_url": "https://www.postgresql.org/media/img/about/press/elephant.png"
