@@ -1,8 +1,8 @@
 groups:
   - name: "Storage"
-    description: "Persist and share data that is separate from the lifecycle of the container"
+    description: "Persist and share data that is separate from the lifecycle of the psql"
   - name: "Networking"
-    description: "Networking Configuration for container"
+    description: "Networking Configuration for psql"
 
 portals:
   web_portal:
