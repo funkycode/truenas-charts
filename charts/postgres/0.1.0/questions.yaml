@@ -7,7 +7,7 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "psql"
+      - "tcp"
     host:
       - "$node_ip"
     ports:
@@ -16,7 +16,7 @@ portals:
 
 questions:
   - variable: ports
-    label: "Transmission Ports"
+    label: "PSQL Ports"
     group: "Networking"
     schema:
       type: dict
@@ -50,18 +50,18 @@ questions:
       type: dict
       attrs:
         - variable: data
-          label: "Download Volume"
+          label: "PSQL Data Volume"
           schema:
             type: dict
             attrs:
               - variable: datasetName
-                label: "Download Volume Dataset"
+                label: "PSQL Data Dataset"
                 schema:
                   type: string
                   $ref:
                     - "normalize/ixVolume"
                   show_if: [["hostPathEnabled", "=", false]]
-                  default: "ix-postgres_download"
+                  default: "ix-postgres_data"
                   hidden: true
                   editable: false
               - variable: mountPath
@@ -73,7 +73,7 @@ questions:
                   editable: false
                   default: "/var/lib/postgresql/data"
               - variable: hostPathEnabled
-                label: "Enable Host Path forPSQL data Volume"
+                label: "Enable Host Path for PSQL data Volume"
                 schema:
                   type: boolean
                   default: false
