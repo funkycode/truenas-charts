@@ -1,6 +1,6 @@
 {
     "charts": {
-        "postgres": {
+        "postgresql": {
             "app_readme": "<h1>Postgres</h1>\n<p><a href=\"https://www.postgresql.org/\">postgreSQL</a> The World's Most Advanced Open Source Relational Database.</p>",
             "categories": [
                 "database",
@@ -13,7 +13,7 @@
             "latest_version": "12.1.15",
             "latest_app_version": "15.2.0",
             "latest_human_version": "15.2.0_12.1.15",
-            "name": "postgres",
+            "name": "postgresql",
             "title": "PostgreSQL",
             "icon_url": "https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-220x234.png"
         },
