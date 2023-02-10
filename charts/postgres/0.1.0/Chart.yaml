@@ -3,10 +3,7 @@ name: postgres
 home: https://www.postgresql.org/
 icon: https://www.postgresql.org/media/img/about/press/elephant.png
 keywords:
-  - postgresql
-  - postgres
   - database
-  - sql
 maintainers:
   - name: funkycode
     url: https://github.com/funkycode/truenas/charts/postgres

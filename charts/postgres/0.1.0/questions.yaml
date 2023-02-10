@@ -29,14 +29,6 @@ questions:
             max: 65535
             default: 5432
             required: true
-  #       - variable: udp_port
-  #         label: "UDP port"
-  #         schema:
-  #           type: int
-  #           min: 8000
-  #           max: 65535
-  #           default: 51414
-  #           required: true
   - variable: hostNetwork
     label: "Configure Host Network"
     group: "Networking"
