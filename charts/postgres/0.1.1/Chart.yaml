@@ -4,9 +4,6 @@ home: https://www.postgresql.org/
 icon: https://www.postgresql.org/media/img/about/press/elephant.png
 keywords:
   - database
-maintainers:
-  - name: funkycode
-    url: https://github.com/funkycode/truenas/charts/postgres
 description:
   PostgreSQL (Postgres) is an open source object-relational database known
   for reliability and data integrity. ACID-compliant, it supports foreign keys, joins,
