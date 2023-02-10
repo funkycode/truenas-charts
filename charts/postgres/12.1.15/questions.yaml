@@ -6,12 +6,12 @@ groups: []
 
 portals:
   web_portal: {}
-  #   protocols:
-  #     - "http"
-  #   host:
-  #     - "$node_ip"
-  #   ports:
-  #     - "$variable-web_port"
-  #   path: "/"
+    protocols:
+      - ""
+    host:
+      - ""
+    ports:
+      - ""
+    path: ""
 
 questions: []
