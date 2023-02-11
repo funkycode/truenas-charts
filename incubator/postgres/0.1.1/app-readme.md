@@ -1,3 +1,3 @@
 # PostgreSQL
 
-[PostgreSQL](https://www.postgresql.org/)(Postgres) is an open source object-relational database .
+[PostgreSQL](https://www.postgresql.org/) is an open source object-relational database .
