@@ -53,7 +53,7 @@ questions:
                   $ref:
                     - "normalize/ixVolume"
                   show_if: [["hostPathEnabled", "=", false]]
-                  default: "ix-postgres_data"
+                  default: "ix-postgres_db"
                   hidden: true
                   editable: false
               - variable: mountPath
