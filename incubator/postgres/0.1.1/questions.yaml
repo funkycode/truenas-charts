@@ -11,7 +11,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "80"
+      - "$variable-tcp_port"
     path: "/"
 
 questions:
