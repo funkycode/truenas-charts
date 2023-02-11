@@ -3,7 +3,7 @@
         "postgres": {
             "app_readme": "<h1>Postgres</h1>\n<p><a href=\"https://www.postgresql.org/\">PostgreSQL</a> (Postgres) is an open source object-relational database.</p>",
             "categories": [
-                "database"
+                "storage"
             ],
             "description": "PostgreSQL (Postgres) is an open source object-relational database.",
             "healthy": true,
