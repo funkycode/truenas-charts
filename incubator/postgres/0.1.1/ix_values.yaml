@@ -1,7 +1,5 @@
 image:
   tag: "15.1-alpine"
   repository: postgres
-# uid=70(postgres)
 runAsUser: 70
-# gid=70(postgres)
 runAsGroup: 70

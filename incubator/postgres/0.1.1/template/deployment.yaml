@@ -18,10 +18,15 @@ spec:
       labels:
         {{- include "postgres.selectorLabels" . | nindent 8 }}
     spec:
+      runAsUser: {{ .Values.runAsUser }}
+      runAsGroup: {{ .Values.runAsGroup }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: POSTGRES_HOST_AUTH_METHOD
+            value: "trust"
           volumeMounts:
           {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
           - name: extrappvolume-{{ $index }}
