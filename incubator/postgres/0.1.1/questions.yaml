@@ -76,5 +76,3 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-                        $ref:
-                          - "validations/lockedHostPath"

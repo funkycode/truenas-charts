@@ -18,6 +18,8 @@ spec:
       labels:
         {{- include "transmission-daemon.selectorLabels" . | nindent 8 }}
     spec:
+      runAsUser: {{ .Values.runAsUser }}
+      runAsGroup: {{ .Values.runAsGroup }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
