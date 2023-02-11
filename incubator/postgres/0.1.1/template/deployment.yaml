@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
           {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
-          - name: volume-{{ $index }}
+          - name: extrappvolume-{{ $index }}
             mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}
           ports:
@@ -51,7 +51,7 @@ spec:
       hostname: postgres
       volumes:
       {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
-        - name: volume-{{ $index }}
+        - name: extrappvolume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
       {{ end }}
