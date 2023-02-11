@@ -7,7 +7,7 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "http"
+      - "tcp"
     host:
       - "$node_ip"
     ports:
