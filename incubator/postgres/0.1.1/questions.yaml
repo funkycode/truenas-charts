@@ -22,12 +22,13 @@ questions:
       type: dict
       attrs:
         - variable: tcp_port
-          label: "TCP port"
+          label: "Host TCP port"
           schema:
+            show_if: [["hostNetwork", "=", true]]
             type: int
-            min: 5430
+            min: 8000
             max: 65535
-            default: 5432
+            default: 65432
             required: true
   - variable: hostNetwork
     label: "Configure Host Network"

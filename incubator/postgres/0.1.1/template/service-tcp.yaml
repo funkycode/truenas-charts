@@ -9,7 +9,7 @@ spec:
   internalTrafficPolicy: Cluster
   ports:
   - name: tcp
-    port: {{ .Values.ports.tcp_port }}
+    port: 5432
     protocol: TCP
     targetPort: tcp
   type: ClusterIP
