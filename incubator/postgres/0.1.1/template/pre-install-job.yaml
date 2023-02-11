@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ include "postgres.fullname" . }}-preinstall-job"
+  labels:
+    app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+    app.kubernetes.io/instance: {{ .Release.Name | quote }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion }}
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    metadata:
+      name: "{{ include "postgres.fullname" . }}-preinstall-hook"
+      labels:
+        app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+        app.kubernetes.io/instance: {{ .Release.Name | quote }}
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: pre-install-job
+        image: "alpine:latest"
+        command: ["chown", "-R", "{{ .Values.runAsUser }}:{{ .Values.runAsGroup }}", "{{ .Values.appVolumeMounts.data.mountPath }}"]
+        volumeMounts:
+        - name: data
+          mountPath: {{ .Values.appVolumeMounts.data.mountPath }}
+      volumes:
+      - name: data
+        hostPath: 
+          path: {{ .Values.appVolumeMounts.data.hostPath }}

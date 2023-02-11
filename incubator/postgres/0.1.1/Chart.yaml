@@ -3,6 +3,7 @@ name: postgres
 home: https://www.postgresql.org/
 icon: https://www.postgresql.org/media/img/about/press/elephant.png
 keywords:
+  - storage
   - database
 description:
   PostgreSQL (Postgres) is an open source object-relational database known
