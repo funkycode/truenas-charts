@@ -34,7 +34,7 @@ spec:
           {{ end }}
           ports:
             - name: tcp
-              containerPort: c
+              containerPort: 5432
               {{ if .Values.hostNetwork }}
               hostPort: {{ .Values.ports.tcp_port }}
               {{ end }}
