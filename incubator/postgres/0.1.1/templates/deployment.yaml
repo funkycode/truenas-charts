@@ -34,7 +34,7 @@ spec:
           {{ end }}
           ports:
             - name: tcp
-              containerPort: 5432
+              containerPort: c
               {{ if .Values.hostNetwork }}
               hostPort: {{ .Values.ports.tcp_port }}
               {{ end }}
@@ -44,13 +44,13 @@ spec:
               command:
               - /bin/sh
               - -c
-              - exec pg_isready -U "postgres" -h 127.0.0.1 -p {{ .Values.ports.tcp_port }}
+              - exec pg_isready -U "postgres" -h 127.0.0.1 -p 5432
           readinessProbe:
             exec:
               command:
               - /bin/sh
               - -c
-              - exec pg_isready -U "postgres" -h 127.0.0.1 -p {{ .Values.ports.tcp_port }}
+              - exec pg_isready -U "postgres" -h 127.0.0.1 -p 5432
       dnsPolicy: ClusterFirstWithHostNet
       hostNetwork: {{ .Values.hostNetwork }}
       hostname: postgres
