@@ -48,10 +48,20 @@ spec:
             httpGet:
               path: /
               port: http
+            failureThreshold: 5
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /
               port: http
+              failureThreshold: 1
+              initialDelaySeconds: 5
+              periodSeconds: 3
+              successThreshold: 1
+              timeoutSeconds: 5
       dnsPolicy: ClusterFirstWithHostNet
       hostNetwork: {{ .Values.hostNetwork }}
       hostname: transmission
