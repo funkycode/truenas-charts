@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "transmission-daemon.fullname" . }}
+  labels:
+    {{- include "transmission-daemon.labels" . | nindent 4 }}
+spec:
+  replicas: {{ (default 1 .Values.replicas) }}
+  selector:
+    matchLabels:
+      {{- include "transmission-daemon.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "transmission-daemon.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
+          - name: extrappvolume-{{ $index }}
+            mountPath: {{ $hostPathConfiguration.mountPath }}
+          {{ end }}
+          ports:
+            - name: http
+              containerPort: 9091
+              {{ if .Values.hostNetwork }}
+              hostPort: {{ .Values.ports.web_port }}
+              {{ end }}
+              protocol: TCP
+            - name: tcp
+              containerPort: {{ .Values.ports.tcp_port }}
+              {{ if .Values.hostNetwork }}
+              hostPort: {{ .Values.ports.tcp_port }}
+              {{ end }}
+              protocol: TCP
+            - name: udp
+              containerPort: {{ .Values.ports.udp_port }}
+              hostPort: {{ .Values.ports.udp_port }}
+              protocol: UDP
+          livenessProbe:
+            tcpSocket:
+              port: http
+            failureThreshold: 5
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          readinessProbe:
+            tcpSocket:
+              port: http
+            failureThreshold: 1
+            initialDelaySeconds: 5
+            periodSeconds: 3
+            successThreshold: 1
+            timeoutSeconds: 5
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: {{ .Values.hostNetwork }}
+      hostname: transmission
+      volumes:
+      {{ range $index, $hostPathConfiguration := .Values.appVolumeMounts }}
+        - name: extrappvolume-{{ $index }}
+          hostPath:
+            path: {{ $hostPathConfiguration.hostPath }}
+      {{ end }}
+

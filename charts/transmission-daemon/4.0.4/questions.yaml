@@ -1,0 +1,133 @@
+groups:
+  - name: "Storage"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Networking"
+    description: "Networking Configuration for transmission"
+
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$node_ip"
+    ports:
+      - "$variable-web_port"
+    path: "/"
+
+questions:
+  - variable: ports
+    label: "Transmission Ports"
+    group: "Networking"
+    schema:
+      type: dict
+      attrs:
+        - variable: web_port
+          label: "Web UI port"
+          schema:
+            type: int
+            min: 8000
+            max: 65535
+            default: 9091
+            required: true
+        - variable: tcp_port
+          label: "TCP port"
+          schema:
+            type: int
+            min: 8000
+            max: 65535
+            default: 51413
+            required: true
+        - variable: udp_port
+          label: "UDP port"
+          schema:
+            type: int
+            min: 8000
+            max: 65535
+            default: 51414
+            required: true
+  - variable: hostNetwork
+    label: "Configure Host Network"
+    group: "Networking"
+    schema:
+      type: boolean
+      default: false
+  - variable: appVolumeMounts
+    label: "Persistant Data"
+    group: "Storage"
+    schema:
+      type: dict
+      attrs:
+        - variable: config
+          label: "Config Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Config Volume Dataset"
+                schema:
+                  type: string
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "ix-transmission_config"
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Transmission Config Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: "/root/.config/transmission-daemon"
+              - variable: hostPathEnabled
+                label: "Enable Host Path for Transmission Config Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path Transmission Config Volume"
+                      schema:
+                        type: hostpath
+                        required: true
+                        $ref:
+                          - "validations/lockedHostPath"
+        - variable: data
+          label: "Download Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Download Volume Dataset"
+                schema:
+                  type: string
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "ix-transmission_download"
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Transmission Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: "/mnt/data"
+              - variable: hostPathEnabled
+                label: "Enable Host Path for Transmission Download Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path Transmission Download Volume"
+                      schema:
+                        type: hostpath
+                        required: true
+                        $ref:
+                          - "validations/lockedHostPath"
