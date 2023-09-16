@@ -492,7 +492,8 @@ tracing:
 
 globalArguments:
   - "--global.checknewversion"
-  - "--global.sendanonymoususage"
+  - "--api=true"
+  - "--api.insecure=true"
 
 #
 # Configure Traefik static configuration
@@ -708,7 +709,7 @@ service:
     []
     # - 1.2.3.4
   ## One of SingleStack, PreferDualStack, or RequireDualStack.
-  # ipFamilyPolicy: SingleStack
+  # ipFamilyPolicy: SingleStackFV
   ## List of IP families (e.g. IPv4 and/or IPv6).
   ## ref: https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services
   # ipFamilies:
